@@ -72,7 +72,7 @@ module.exports = env => {
 
     resolve: {
     // Add `.ts` and `.tsx` as a resolvable extension.
-    extensions: [".ts", ".tsx", ".js"]
+    extensions: [".ts", ".tsx", ".js",".css", ".scss"]
   },
 
 
@@ -81,6 +81,20 @@ module.exports = env => {
     // https://webpack.js.org/concepts#loaders
     module: {
       rules: [
+     {
+                test: /\.scss$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: "css-loader",
+                      
+                    },
+                    {
+                        loader: "sass-loader"
+                    },
+                    
+                ]
+            },
       // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
       { test: /\.tsx?$/, loader: "ts-loader" },
         {
