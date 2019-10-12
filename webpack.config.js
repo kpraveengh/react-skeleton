@@ -82,7 +82,7 @@ module.exports = env => {
     module: {
       rules: [
      {
-                test: /\.scss$/,
+      test: /\.(css|sass|scss)$/,
                 use: [
                     'style-loader',
                     {
