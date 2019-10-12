@@ -1,8 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React, { Component} from "react";
 import './styles/layout.style.scss';
 
-class AppSidebar extends React.Component<any, any>{
+class AppSidebar extends Component<any, any>{
 
  constructor(props) {
     super(props);
