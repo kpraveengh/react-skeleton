@@ -13,9 +13,14 @@ class AppSidebar extends Component<any, any>{
 
  constructor(props) {
     super(props);
-    this.state = {clicked: false,
+    this.state = {
+      show: false,
+      clicked: false,
+      showSubmenu:false,
       chartData: {}};
-
+      this.doSomething = this.doSomething.bind(this);
+      this.toggleShow = this.toggleShow.bind(this);
+      this.hide = this.hide.bind(this);
   }
 
 
@@ -58,12 +63,33 @@ class AppSidebar extends Component<any, any>{
     });
   }
 
-
+  toggleDropdown=()=>{
+    const showSubmenu=this.state.showSubmenu;
+    this.setState({showSubmenu:!showSubmenu})
+  }
  toggleClass = () => {
       const currentState = this.state.clicked;
       console.log(currentState)
         this.setState({ clicked: !currentState });
   };
+
+  doSomething(e){
+    e.preventDefault();
+    console.log(e.target.innerHTML);
+  }
+
+  toggleShow(){
+    console.log(this.state.show)
+    this.setState({show: !this.state.show});
+    
+  }
+
+  hide(e){
+    if(e && e.relatedTarget){
+      e.relatedTarget.click();
+    }
+    this.setState({show: false});
+  }
 
     render() {    
 
@@ -114,12 +140,14 @@ class AppSidebar extends Component<any, any>{
                     <li className="header-menu">
                       <span>General</span>
                     </li>
-                    <li className="sidebar-dropdown">
+                    <li onClick={this.toggleShow}
+           className='sidebar-dropdown' >
                       <a href="#">
                         <i className="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                         <span className="badge badge-pill badge-warning">New</span>
                       </a>
+                     
                       <div className="sidebar-submenu">
                         <ul>
                           <li>
@@ -135,6 +163,7 @@ class AppSidebar extends Component<any, any>{
                           </li>
                         </ul>
                       </div>
+
                     </li>
                     <li className="sidebar-dropdown">
                       <a href="#">
