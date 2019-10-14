@@ -142,7 +142,7 @@ body {
 /*--------------------sidebar-brand----------------------*/
 
 .sidebar-wrapper .sidebar-brand {
-  padding: 10px 20px;
+  padding: 12px 20px;
   display: flex;
   align-items: center;
 }
@@ -532,9 +532,10 @@ body {background-color: #2a2b3d}
   color: #CCC;
 }
 .welcome .content {
-  background-color: #313348;
+  background-color: #31353d;
   padding: 15px;
   margin-top: 25px;
+  border-top: 2px solid #ffb822;
 }
 .welcome h2 {
   font-family: Calibri;
@@ -552,7 +553,7 @@ body {background-color: #2a2b3d}
   color: #CCC;
 }
 .statistics .box {
-  background-color: #313348;
+  background-color: #fff;
   padding: 15px;
   overflow: hidden;
 }
@@ -583,7 +584,7 @@ body {background-color: #2a2b3d}
   color: #BBB
 }
 .charts .chart-container {
-  background-color: #313348;
+  background-color: #fff;
   padding: 15px;
 }
 .charts .chart-container h3 {
@@ -608,7 +609,7 @@ body {background-color: #2a2b3d}
 .admins .box .admin {
   margin-bottom: 20px;
   overflow: hidden;
-  background-color: #313348;
+  background-color: #fff;
   padding: 10px;
 }
 .admins .box .admin .img {
@@ -706,10 +707,11 @@ body {background-color: #2a2b3d}
   left: 0 !important;
 }
 .navbar-default {
-  background-color: #6f6486 !important;
+  background-color: #31353d !important;
   border: none !important;
   border-radius: 0 !important;
-  margin: 0 !important
+  margin: 0 !important;
+  padding: 0rem 1rem !important;
 }
 .navbar-default .navbar-nav>li>a {
   color: #EEE !important;
@@ -766,7 +768,11 @@ body {background-color: #2a2b3d}
 .navbar-default .navbar-nav>li>a>i {
   font-size: 18px !important;
 }
-
+a.navbar-brand.navbar-header {
+  color: #fff !important;
+  text-transform: initial;
+  font-weight: 400;
+}
 
 
 

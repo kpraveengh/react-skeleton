@@ -1,12 +1,61 @@
 import React, { Component, Fragment} from "react";
 import './styles/layout.style.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import MyChart from "../../_modules/graphs/Charts";
+// var Bar = require("react-chartjs-2").Bar;
+
+
+
+// var BarChart = require("react-chartjs").Bar;
+
 
 class AppSidebar extends Component<any, any>{
 
  constructor(props) {
     super(props);
-    this.state = {clicked: false};
+    this.state = {clicked: false,
+      chartData: {}};
+
+  }
+
+
+  componentWillMount() {
+    this.getChartData();
+  }
+
+  getChartData() {
+    // Ajax calls here
+    this.setState({
+      chartData: {
+        labels: [
+          "Jerusalem",
+          "Tel Aviv",
+          "Haifa",
+          "Ashdod",
+          "Rishon LeZiyyon",
+          "Petah Tikva"
+        ],
+        datasets: [
+          {
+            label: "Population",
+            fillColor: [],
+            backgroundColor: ["rgba(255, 99, 132, 0.6)",
+            "rgba(54, 162, 235, 0.6)",
+            "rgba(255, 206, 86, 0.6)",
+            "rgba(75, 192, 192, 0.6)",
+            "rgba(153, 102, 255, 0.6)",
+            "rgba(255, 159, 64, 0.6)",
+            "rgba(255, 99, 132, 0.6)"],
+            strokeColor: "rgba(220,220,220,0.8)", 
+            highlightFill: "rgba(220,220,220,0.75)",
+            highlightStroke: "rgba(220,220,220,1)",
+
+            data: [801000, 432892, 267300, 224656, 220492, 200000],
+
+          }
+        ]
+      }
+    });
   }
 
 
@@ -27,7 +76,7 @@ class AppSidebar extends Component<any, any>{
             <nav id="sidebar" className={this.state.clicked ? 'sidebar-wrapper sidebar-collapse' : 'sidebar-wrapper'} >
               <div className="sidebar-content">
                 <div className="sidebar-brand">
-                  <a href="#">pro sidebar</a>
+                <a className="navbar-brand navbar-header" href="#">my<span className="main-color">Dashboard</span></a>
                   <div id="close-sidebar" onClick={this.toggleClass} >
                     <i className="fa fa-times"></i>
                   </div>
@@ -173,9 +222,6 @@ class AppSidebar extends Component<any, any>{
       <nav className="navbar navbar-default">
         <div className="container-fluid">
           <div className="navbar-header">
-            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <i className="fa fa-align-right"></i>
-            </button>
             <a className="navbar-brand" href="#">my<span className="main-color">Dashboard</span></a>
           </div>
           <div className="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
@@ -210,6 +256,40 @@ class AppSidebar extends Component<any, any>{
           </div>
         </div>
       </div>
+      <section className='statis text-center'>
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-md-3">
+                <div className="box bg-primary">
+                  <i className="fa fa-eye"></i>
+                  <h3>5,154</h3>
+                  <p className="lead">Page views</p>
+                </div>
+              </div>
+              <div className="col-md-3">
+                <div className="box danger">
+                  <i className="fa fa-user-o"></i>
+                  <h3>245</h3>
+                  <p className="lead">User registered</p>
+                </div>
+              </div>
+              <div className="col-md-3">
+                <div className="box warning">
+                  <i className="fa fa-shopping-cart"></i>
+                  <h3>5,154</h3>
+                  <p className="lead">Product sales</p>
+                </div>
+              </div>
+              <div className="col-md-3">
+                <div className="box success">
+                  <i className="fa fa-handshake-o"></i>
+                  <h3>5,154</h3>
+                  <p className="lead">Transactions</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       <section className="statistics">
         <div className="container-fluid">
           <div className="row">
@@ -249,136 +329,46 @@ class AppSidebar extends Component<any, any>{
             <div className="col-md-6">
               <div className="chart-container">
                 <h3>Chart</h3>
-                <canvas id="myChart"></canvas>
+                {/* <MyChart data={this.state.chartData}/> */}
+               <MyChart
+            chartData={this.state.chartData}
+            location="Israel"
+            legendPosition="top"
+          />
+                {/* <BarChart data={chartData} options={chartOptions}/> */}
               </div>
             </div>
             <div className="col-md-6">
               <div className="chart-container">
                 <h3>Chart2</h3>
-                <canvas id="myChart2"></canvas>
+                <MyChart
+            chartData={this.state.chartData}
+            location="Israel"
+            legendPosition="top"
+          />
+                {/* <canvas id="myChart2"></canvas> */}
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="admins">
-        <section className="container-fluid">
-          <div className="row">
-            <div className="col-md-6">
-              <div className="box">
-                <h3>Admins:</h3>
-                <div className="admin">
-                  <div className="img">
-                    <img className="img-responsive" src="https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148906966/small/1501685402/enhance" alt="admin" />
-                  </div>
-                  <div className="info">
-                    <h3>Joge Lucky</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                  </div>
-                </div>
-                <div className="admin">
-                  <div className="img">
-                    <img className="img-responsive" src="https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148907137/small/1501685404/enhance" alt="admin" />
-                  </div>
-                  <div className="info">
-                    <h3>Joge Lucky</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                  </div>
-                </div>
-                <div className="admin">
-                  <div className="img">
-                    <img className="img-responsive" src="https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148907019/small/1501685403/enhance" alt="admin" />
-                  </div>
-                  <div className="info">
-                    <h3>Joge Lucky</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6">
-              <div className="box">
-                <h3>Moderators:</h3>
-                <div className="admin">
-                  <div className="img">
-                    <img className="img-responsive" src="https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148907114/small/1501685404/enhance" alt="admin" />
-                  </div>
-                  <div className="info">
-                    <h3>Joge Lucky</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                  </div>
-                </div>
-                <div className="admin">
-                  <div className="img">
-                    <img className="img-responsive" src="https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148907086/small/1501685404/enhance" alt="admin" />
-                  </div>
-                  <div className="info">
-                    <h3>Joge Lucky</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                  </div>
-                </div>
-                <div className="admin">
-                  <div className="img">
-                    <img className="img-responsive" src="https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148907008/medium/1501685726/enhance" alt="admin" />
-                  </div>
-                  <div className="info">
-                    <h3>Joge Lucky</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          </section>
-        <section className='statis text-center'>
+        <section className="charts">
           <div className="container-fluid">
             <div className="row">
-              <div className="col-md-3">
-                <div className="box bg-primary">
-                  <i className="fa fa-eye"></i>
-                  <h3>5,154</h3>
-                  <p className="lead">Page views</p>
-                </div>
-              </div>
-              <div className="col-md-3">
-                <div className="box danger">
-                  <i className="fa fa-user-o"></i>
-                  <h3>245</h3>
-                  <p className="lead">User registered</p>
-                </div>
-              </div>
-              <div className="col-md-3">
-                <div className="box warning">
-                  <i className="fa fa-shopping-cart"></i>
-                  <h3>5,154</h3>
-                  <p className="lead">Product sales</p>
-                </div>
-              </div>
-              <div className="col-md-3">
-                <div className="box success">
-                  <i className="fa fa-handshake-o"></i>
-                  <h3>5,154</h3>
-                  <p className="lead">Transactions</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="chrt3">
-          <div className="container-fluid">
-            <div className="row">
-              <div className="col-md-9">
+              <div className="col-md-6">
                 <div className="chart-container">
-                  <canvas id="chart3" width="100%"></canvas>
+                <h3>Chart3</h3>
+                  {/* <canvas id="chart3" width="100%"></canvas> */}
                 </div>
               </div>
-              <div className="col-md-4">
-                <div className="box">
+              <div className="col-md-6">
+                <div className="chart-container">
+                <h3>Chart4</h3>
+                
                 </div>
               </div>
             </div>
           </div>
-        </section>
       </section>
       </section>
       </div>
