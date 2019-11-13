@@ -56,43 +56,6 @@ class MenuList extends Component<any, any>{
                                     }
                               ]
                         },
-                        // {
-                        //       id: 6,
-                        //       name: "E-Commerce",
-                        //       icon:'fa fa-shopping-cart',
-                        //       checked:false,
-                        //       children: [{
-                        //             id: 7,
-                        //             name: "E-Commerce-1",
-                        //             icon:'',
-                        //             children: []
-                        //       },
-                        //       {
-                        //             id: 8,
-                        //             name: "E-Commerce-2",
-                        //             icon:'',
-                        //             children: []
-                        //       }]
-                        // },
-                        // {
-                        //       id: 9,
-                        //       name: "Maps",
-                        //       label: 'Beta',
-                        //       icon:'fa fa-globe',
-                        //       children: []
-                        // },
-                        // {
-                        //       id: 10,
-                        //       name: "Documentation",
-                        //       icon:'fa fa-book',
-                        //       children: []
-                        // },
-                        // {
-                        //       id: 11,
-                        //       name: "Calendar",
-                        //       icon:'fa fa-calendar',
-                        //       children: []
-                        // }
                         {
                               id:12,
                               name:"Jobs",
@@ -107,29 +70,41 @@ class MenuList extends Component<any, any>{
 
                         },
                         {
-                              id:17,
+                              id:14,
                               name:"Job Requests",
                               icon:"fa fa-envelope",
                               children:[],
 
                         },
                         {
-                              id:14,
+                              id:15,
                               name:"Interviews",
                               icon:"fa fa-calendar",
                               children:[],
 
                         },
                         {
-                              id:15,
+                              id:16,
                               name:"Panel-Interviewers",
                               icon:"fa fa-vcard-o",
                               children:[]
                         },
                         {
-                              id:16,
+                              id:17,
                               name:"Recruiters",
                               icon:"fa fa-vcard-o",
+                              children:[]
+                        },
+                        {
+                              id:18,
+                              name:"Locations",
+                              icon:"fa fa-building-o",
+                              children:[]
+                        },
+                        {
+                              id:19,
+                              name:"Key Skills",
+                              icon:"fa fa-star-o",
                               children:[]
                         }
 
