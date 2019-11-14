@@ -179,7 +179,7 @@ class MenuList extends Component<any, any>{
             return (
                   <Fragment>
                         <div className={this.state.clicked ? 'page-wrapper chiller-theme' : 'page-wrapper chiller-theme toggled'}>
-                              <a id="show-sidebar" className="btn btn-sm btn-dark" href="#" onClick={this.toggleClass}>
+                              <a id="show-sidebar" className="btn btn-sm btn-dark text-default"  onClick={this.toggleClass}>
                                     <i className="fa fa-bars"></i>
                               </a>
                               <nav id="sidebar" className={this.state.clicked ? 'sidebar-wrapper sidebar-collapse' : 'sidebar-wrapper'} >

@@ -5,7 +5,7 @@ export default class Login extends Component<any,any> {
 
  render() {
     return (
-     <h1>Hi I'm login</h1>
+     <h1>Hi I'm loginssss</h1>
   		)
 	}
 }
